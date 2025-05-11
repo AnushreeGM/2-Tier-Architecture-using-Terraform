@@ -1,3 +1,7 @@
+data "aws_availability_zone" "availability_zones" {
+    state = "available"
+}
+
 resource "aws_vpc" "vpc" {
     cidr_block = var.vpc_cidr
     instance_tenancy = "default"
@@ -15,9 +19,6 @@ resource "aws_internet_gateway" "internet_gateway" {
   }
 }
 
-data "aws_availability_zone" "availability_zones" {
-    state = "available"
-}
 
 # create public subnet pub_sub_1a
 resource "aws_subnet" "pub_sub_1a" {
